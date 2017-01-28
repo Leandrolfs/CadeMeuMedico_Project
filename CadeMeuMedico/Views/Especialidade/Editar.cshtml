@@ -1,0 +1,35 @@
+﻿@model CadeMeuMedico.Models.especialidades
+@{
+    ViewBag.Title = "Editar";
+}
+
+@using (Html.BeginForm("Editar", "Especialidade", FormMethod.Post, new { @class="form-horizontal"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    <div class="editor-field">
+        @Html.HiddenFor(model => model.IDEspecialidade)
+        @Html.ValidationMessageFor(model => model.IDEspecialidade)
+    </div>
+    <div class="editor-label">
+        <label>Nome</label>
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Nome, new { @class="form-control"})
+        @Html.ValidationMessageFor(model => model.Nome)
+    </div>
+    <br />
+    
+    <p>
+        <input type="submit" value="Salvar" class="btn btn-primary"/>
+    </p>
+}
+<div>
+    @Html.ActionLink("Voltar para a lista de Especialidades", "ListaEspecialidade", null, new { @class="btn btn-success"})
+</div>
+@section script{
+    <script>
+        $("#menuEspecialidade").addClass("active");
+    </script>
+}

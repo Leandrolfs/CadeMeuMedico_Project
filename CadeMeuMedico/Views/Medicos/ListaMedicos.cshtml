@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CadeMeuMedico.Models.medicos>
+
+@{
+    ViewBag.Title = "Medicos";
+}
+
+<p>
+    @Html.ActionLink("Adicionar Medico", "Adicionar", null, new { @class="btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>Nome</label>
+        </th>
+        <th>
+            <label>Cidade</label>
+        </th>
+        <th>
+            <label>Especialidade</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cidades.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.especialidades.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.IDMedico}) |
+            @Html.ActionLink("Deletar", "Excluir", new { id = item.IDMedico }, new { @class="excluir"})
+        </td>
+    </tr>
+}
+
+</table>
+@section script{
+    <script>
+            $(function () {
+                var linhaAtual;
+                $("#menuMedicos").addClass("active"); //Ativa o Menu Medico
+
+                $(".excluir").click(function () { //Chamando a classe exluir setada no link de exclusão acima
+                    if (confirm("Confirma a exclusão do Médico?")) {
+                        var urlExclusao = $(this).attr("href"); //Se confirmar exclusão, Acessa o Link do href
+                        linhaAtual = $(this).closest("tr");
+
+                        $.ajax({
+                            url: urlExclusao,
+                            type: "POST",
+                        }).done(function (excluiu) {
+                            if (excluiu) {
+                                linhaAtual.remove();
+                            } else {
+                                alert("Erro ao excluir o Médico :(");
+                            }
+                        }).fail(function () {
+                            alert("Ocorreu um erro :(");
+                        });
+                        return false;
+                    }
+                });
+            });
+    </script>
+}

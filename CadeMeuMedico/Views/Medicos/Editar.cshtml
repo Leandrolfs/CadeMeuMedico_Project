@@ -1,0 +1,117 @@
+﻿@model CadeMeuMedico.Models.medicos
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+@using (Html.BeginForm("Editar", "Medicos", FormMethod.Post, new { @class="form-horizontal"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <!--<div class="editor-label">
+            Html.HiddenFor(model => model.IDMedico)
+        </div>-->
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.IDMedico) <!--O IDMedico não precisa ser mostrado, mais precisa esta presente no form-->
+            @Html.ValidationMessageFor(model => model.IDMedico)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CRM)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.CRM, new { @class="form-control"})
+            @Html.ValidationMessageFor(model => model.CRM)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nome)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Nome, new { @class="form-control"})
+            @Html.ValidationMessageFor(model => model.Nome)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Endereco)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Endereco, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.Endereco)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Bairro)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Bairro, new { @class="form-control"})
+            @Html.ValidationMessageFor(model => model.Bairro)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Email, new { @class="form-control"})
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            <label>Atende por convênio</label>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AtendePorConvenio)
+            @Html.ValidationMessageFor(model => model.AtendePorConvenio)
+        </div>
+
+        <div class="editor-label">
+            <label>Tem clínicca</label>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TemClinica)
+            @Html.ValidationMessageFor(model => model.TemClinica)
+        </div>
+
+        <div class="editor-label">
+            <label>Site</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.WebSiteBlog, new { @class="form-control"})
+            @Html.ValidationMessageFor(model => model.WebSiteBlog)
+        </div>
+
+        <div class="editor-label">
+            <label>Cidade</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.cidades.Nome, new { @class="form-control"})
+            @Html.ValidationMessageFor(model => model.IDCidade)
+        </div>
+
+        <div class="editor-label">
+            <label>Especialidade</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.especialidades.Nome, new { @class="form-control"})
+            @Html.ValidationMessageFor(model => model.IDEspecialidade)
+        </div>
+        <br />
+        <p>
+            <input type="submit" value="Salvar" class="btn btn-primary"/>
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Voltar para a lista de Médicos", "ListaMedicos", null, new { @class="btn btn-success"})
+</div>
+<br />
+@section script{
+    <script>
+        $("#menuMedicos").addClass("active");
+    </script>
+}

@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Cadê Meu Medico - @ViewBag.Title</title> <!--ViewBag Mostra na view valores predefinidos, nesse caso mostra o titulo da pag-->
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet"/>
+    <!--O Url.Content converte um diretorio virtual relativo para um diretorio absoluto na aplicação-->
+     
+   <!--<link href="~/styles" rel="stylesheet"/> <!--Aumenta o desempenho caso tenha muitos arquivos para serem referenciados
+                                               dessa forma em vez de ser feita varias requisições ao servidor, apenas uma é 
+                                               feita, pois o framework verifica todos os arquivos dentro do diretorio, combina
+                                               e minifica os arquivos devolvendo uma resposta HTTP de um unico arquivo CSS    
+                                               -->
+    <style>
+        body{padding-top:60px;}.navbar-header .navbar-brand{color:#ff6a00;font-weight:bold;text-transform:uppercase;text-shadow:10px 5px 6px #ff0000;}
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="~/">Cadê Meu Medico?</a>&nbsp; &nbsp;
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                   <!--<li class="active"><a href="~/">Home</a></li>-->
+                    <!--Cria um link com o href em tempo de execução-->
+                    <li id="menuMedicos">@Html.ActionLink("Médicos","ListaMedicos", "Medicos")</li>
+                    <li id="menuCidades">@Html.ActionLink("Cidades","ListaCidades","Cidades")</li>
+                    <li id="menuEspecialidade">@Html.ActionLink("Especialidades", "ListaEspecialidade", "Especialidade")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @RenderBody() <!--Usado para renderizar as view, ou seja, sendo assim todas as view vão usar esse Layout-->
+    </div>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("script",required:false) <!--Sessão onde os scripts serão renderizados-->
+</body>
+</html>

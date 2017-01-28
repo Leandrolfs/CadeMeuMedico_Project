@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cademeumedicoModelStoreContainer" CdmEntityContainer="cademeumedicoEntities">
+    <EntitySetMapping Name="bannerspublicitarios">
+      <EntityTypeMapping TypeName="cademeumedicoModel.bannerspublicitarios">
+        <MappingFragment StoreEntitySet="bannerspublicitarios">
+          <ScalarProperty Name="IDBanner" ColumnName="IDBanner" />
+          <ScalarProperty Name="TituloCampanha" ColumnName="TituloCampanha" />
+          <ScalarProperty Name="BannerCampanha" ColumnName="BannerCampanha" />
+          <ScalarProperty Name="LinkBanner" ColumnName="LinkBanner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cidades">
+      <EntityTypeMapping TypeName="cademeumedicoModel.cidades">
+        <MappingFragment StoreEntitySet="cidades">
+          <ScalarProperty Name="IDCidade" ColumnName="IDCidade" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="especialidades">
+      <EntityTypeMapping TypeName="cademeumedicoModel.especialidades">
+        <MappingFragment StoreEntitySet="especialidades">
+          <ScalarProperty Name="IDEspecialidade" ColumnName="IDEspecialidade" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="medicos">
+      <EntityTypeMapping TypeName="cademeumedicoModel.medicos">
+        <MappingFragment StoreEntitySet="medicos">
+          <ScalarProperty Name="IDMedico" ColumnName="IDMedico" />
+          <ScalarProperty Name="CRM" ColumnName="CRM" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AtendePorConvenio" ColumnName="AtendePorConvenio" />
+          <ScalarProperty Name="TemClinica" ColumnName="TemClinica" />
+          <ScalarProperty Name="WebSiteBlog" ColumnName="WebSiteBlog" />
+          <ScalarProperty Name="IDCidade" ColumnName="IDCidade" />
+          <ScalarProperty Name="IDEspecialidade" ColumnName="IDEspecialidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="cademeumedicoModel.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
